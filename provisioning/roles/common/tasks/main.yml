@@ -1,0 +1,9 @@
+---
+  - name: Update apt cache
+    apt: update_cache=yes cache_valid_time=86400
+
+  - name: Upgrade all packages
+    apt: upgrade=safe
+
+  - name: Generate en_US.UTF-8 locale
+    locale_gen: name=en_US.UTF-8 state=present

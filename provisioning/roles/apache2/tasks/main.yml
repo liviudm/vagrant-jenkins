@@ -1,0 +1,24 @@
+---
+  - name: Update APT cache
+    apt: update_cache=yes
+
+  - name: Install apache2
+    apt: name=apache2 state=latest
+
+  - name: Active Apache proxy modules
+    apache2_module: name={{ item }} state=present
+    with_items:
+      - proxy
+      - proxy_http
+
+  - name: Copy Jenkins vhost
+    template: src=jenkins.conf dest=/etc/apache2/sites-available/
+
+  - name: Activate Jenkins vhost
+    command: a2ensite jenkins
+
+  - name: Deactivate default vhost
+    command: a2dissite 000-default
+
+  - name: Ensure Apache is running
+    service: name=apache2 state=restarted enabled=yes
