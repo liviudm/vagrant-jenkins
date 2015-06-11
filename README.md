@@ -19,3 +19,9 @@
 ## Securing Jenkins
 
 Check the [Jenkins documentation](https://wiki.jenkins-ci.org/display/JENKINS/Securing+Jenkins) to secure your installation.
+
+## License
+
+Everything in this repository is licensed under the [MIT License](LICENSE.md), unless otherwise stated.
+
+VirtualBox, Vagrant, Vagrant Hostmanager, Ansible and Jenkins are licensed by their respective owners. Make sure you check the licensing terms before using them.
